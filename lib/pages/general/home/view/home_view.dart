@@ -1,8 +1,12 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tausifcoincompass/core/base/view/base_view.dart';
 import 'package:tausifcoincompass/core/base/widget/base_stateless_widget.dart';
 
 import '../viewmodel/home_viewmodel.dart';
+import '../widgets/image_slider/view/image_slider.dart';
+import '../widgets/video_slider/view/video_slider.dart';
 
 final class Home extends BaseStatelessWidget<HomeViewModel> {
   Home({Key? key}) : super(key: key, viewModel: HomeViewModel());
@@ -20,53 +24,51 @@ final class Home extends BaseStatelessWidget<HomeViewModel> {
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
         leading: const Icon(Icons.logo_dev_sharp), //TODO:Application-logo
-        actions: const [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.notifications),
-              Icon(Icons.person), //TODO: User or login icon
-            ],
-          )
+        actions: [
+          InkWell(
+              onTap: () => viewModel.navigateToRegister(),
+              child: const Icon(Icons.notifications)),
+          InkWell(
+              onTap: () => viewModel.navigateToLogin(),
+              child: const Icon(Icons.login)),
         ],
       ),
       body: _body(context),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.orangeAccent,
-        items: const [
-          BottomNavigationBarItem(
-            label: 'Stats',
-            icon: Icon(Icons.query_stats),
-          ),
-          BottomNavigationBarItem(
-            label: 'Coins',
-            icon: Icon(Icons.currency_rupee),
-          )
+      bottomNavigationBar: _bottomNavigationBar(),
+    );
+  }
+
+  Widget _body(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ImageSlider(),
+          VideoSlider(),
+          ImageSlider(),
         ],
       ),
     );
   }
 
-  Widget _body(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            onPressed: () => viewModel.navigateToLogin(),
-            style: ElevatedButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20)),
-            child: const Text('Navigate to Login Page'),
-          ),
-          ElevatedButton(
-            onPressed: () => viewModel.navigateToRegister(),
-            style: ElevatedButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20)),
-            child: const Text('Navigate to Register Page'),
-          )
-        ],
-      ),
+  BottomNavigationBar _bottomNavigationBar() {
+    return BottomNavigationBar(
+      backgroundColor: Colors.orangeAccent,
+      items: const [
+        BottomNavigationBarItem(
+          label: 'Home',
+          icon: Icon(Icons.home),
+        ),
+        BottomNavigationBarItem(
+          label: 'Coins',
+          icon: Icon(Icons.currency_rupee),
+        ),
+        BottomNavigationBarItem(
+          label: 'Stats',
+          icon: Icon(Icons.query_stats),
+        ),
+      ],
     );
   }
 }
