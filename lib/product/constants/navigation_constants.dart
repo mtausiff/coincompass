@@ -10,6 +10,7 @@ enum NavigationConstants {
   coindetails,
   coinlisting,
   contactus,
+  videopage,
 }
 
 List<GetPage> get getPages => NavigationConstants.values.map((e) => GetPage(name: e.pageName, page: () => e.pageWidget)).toList();

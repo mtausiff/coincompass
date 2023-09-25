@@ -36,4 +36,12 @@ final class HomeViewModel extends BaseViewModel {
       },
     );
   }
+
+  Future<void> navigateToVideoPage() async {
+    await 1.seconds.delay(
+      () async {
+        await offNamed(NavigationConstants.videopage);
+      },
+    );
+  }
 }

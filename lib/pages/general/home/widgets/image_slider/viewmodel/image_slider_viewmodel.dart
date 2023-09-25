@@ -7,7 +7,7 @@ import '../../../../../../core/base/viewmodel/base_viewmodel.dart';
 final class ImageSliderViewModel extends BaseViewModel {
   static ImageSliderViewModel get to => Get.find();
 
-CarouselController buttonCarouselController = CarouselController();
+  CarouselController buttonCarouselController = CarouselController();
   int _currentPage = 0;
 
   List<String> imagesList = [
@@ -28,7 +28,7 @@ CarouselController buttonCarouselController = CarouselController();
         Container(
           width: 10,
           height: 10,
-          margin: EdgeInsets.symmetric(horizontal: 5),
+          margin: const EdgeInsets.symmetric(horizontal: 5),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: _currentPage == i ? Colors.blue : Colors.grey,

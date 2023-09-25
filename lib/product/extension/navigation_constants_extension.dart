@@ -3,6 +3,7 @@ import 'package:tausifcoincompass/pages/general/coindetails/view/coin_details_vi
 import 'package:tausifcoincompass/pages/general/coinlisting/view/coin_listing_view.dart';
 import 'package:tausifcoincompass/pages/general/contactus/view/contactus_view.dart';
 import 'package:tausifcoincompass/pages/general/home/view/home_view.dart';
+import 'package:tausifcoincompass/pages/general/home/widgets/video_slider/video_player_impl.dart';
 import 'package:tausifcoincompass/pages/general/login/view/login_view.dart';
 import 'package:tausifcoincompass/pages/general/register/view/register_view.dart';
 
@@ -21,5 +22,6 @@ extension NavigationConstantsExtension on NavigationConstants {
         NavigationConstants.coindetails => CoinDetails(),
         NavigationConstants.coinlisting => CoinListing(),
         NavigationConstants.contactus => ContactUs(),
+        NavigationConstants.videopage => const VideoPlayerPage(),
       };
 }

@@ -1,8 +1,7 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tausifcoincompass/core/base/view/base_view.dart';
 import 'package:tausifcoincompass/core/base/widget/base_stateless_widget.dart';
+import 'package:tausifcoincompass/pages/general/home/widgets/content_slider/view/content_slider.dart';
 
 import '../viewmodel/home_viewmodel.dart';
 import '../widgets/image_slider/view/image_slider.dart';
@@ -25,6 +24,10 @@ final class Home extends BaseStatelessWidget<HomeViewModel> {
         backgroundColor: Colors.orangeAccent,
         leading: const Icon(Icons.logo_dev_sharp), //TODO:Application-logo
         actions: [
+
+          InkWell(
+              onTap: () => viewModel.navigateToVideoPage(),
+              child: const Icon(Icons.video_camera_back)),
           InkWell(
               onTap: () => viewModel.navigateToRegister(),
               child: const Icon(Icons.notifications)),
@@ -45,7 +48,8 @@ final class Home extends BaseStatelessWidget<HomeViewModel> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ImageSlider(),
-          VideoSlider(),
+          //VideoSlider(),
+          ContentSlider(),
           ImageSlider(),
         ],
       ),
