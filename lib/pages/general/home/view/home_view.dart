@@ -3,6 +3,7 @@ import 'package:tausifcoincompass/core/base/view/base_view.dart';
 import 'package:tausifcoincompass/core/base/widget/base_stateless_widget.dart';
 import 'package:tausifcoincompass/pages/general/home/widgets/content_slider/view/content_slider.dart';
 
+import '../../widgets/app_logo_widget.dart';
 import '../viewmodel/home_viewmodel.dart';
 import '../widgets/image_slider/view/image_slider.dart';
 import '../widgets/video_slider/view/video_slider.dart';
@@ -22,7 +23,7 @@ final class Home extends BaseStatelessWidget<HomeViewModel> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
-        leading: const Icon(Icons.logo_dev_sharp), //TODO:Application-logo
+        leading: logoWidget('assets/logo/app-logo.png'),
         actions: [
 
           InkWell(
