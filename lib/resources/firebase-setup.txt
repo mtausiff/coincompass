@@ -1,0 +1,22 @@
+1. Go to https://console.firebase.google.com/
+2. Create new project by giving Project Name and save changes
+3. Create new App for each platform (Android/iOS/Web) and fill up below details
+ a.) Android package name -> copy android>defaultConfig>applicationId from ../flutter_authentication_application/android/app/build.gradle file
+ b.) App nickname (optional)
+ c.) Debug signing certificate SHA-1 (optional) -> Required for Dynamic Links, and Google Sign-In or phone number support in Auth
+    i->   Run below command in terminal
+            keytool -list -v \
+                -alias androiddebugkey -keystore ~/.android/debug.keystore
+    ii->  Enter keystore password: android
+    iii-> Copy generated SHA-1 and paste it to SHA-1 field
+
+ d.) Click on 'Register App' button
+ e.) Download 'google-services.json' file and add it at path '../flutter_authentication_application/android/app/google-services.json'
+ f.) Click on 'Next' button
+ g.) Add Firebase SDK by following suggested instructions. i.e. update project-level & app-level build.gradle files
+ h.) After adding the plugin and the desired SDKs, sync your Android project with Gradle files
+ i.) Click on 'Next' button
+ j.) Click on 'Continue to Console button'
+
+4. Add firebase-core and firebase-auth dependencies to pubspec.yaml file
+5. Run 'flutter pub get' command from terminal
