@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tausifcoincompass/product/extension/navigation_constants_extension.dart';
+import 'package:tausifcoincompass/core/extension/navigation_constants_extension.dart';
 
 import '../constants/navigation_constants.dart';
 

@@ -4,7 +4,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:tausifcoincompass/core/base/viewmodel/base_viewmodel.dart';
-import 'package:tausifcoincompass/product/constants/navigation_constants.dart';
+import 'package:tausifcoincompass/core/constants/navigation_constants.dart';
 import 'package:lehttp_overrides/lehttp_overrides.dart';
 
 import '../../../core/local_storage/local_storage.dart';

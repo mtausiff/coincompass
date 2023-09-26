@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 
 import '../../env/env.dart';
-import '../../product/constants/app_constants.dart';
-import '../../product/enum/build_type.dart';
+import '../../core/constants/app_constants.dart';
+import '../../core/enum/build_type.dart';
 import 'core_dio.dart';
 
 final class NetworkManager {

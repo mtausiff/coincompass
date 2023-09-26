@@ -1,14 +1,14 @@
 import 'package:get/get.dart';
 import 'package:tausifcoincompass/core/base/viewmodel/base_viewmodel.dart';
 import 'package:tausifcoincompass/pages/home/view/home_view.dart';
-import 'package:tausifcoincompass/product/enum/page_state.dart';
+import 'package:tausifcoincompass/core/enum/page_state.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../../product/constants/navigation_constants.dart';
+import '../../../../core/constants/navigation_constants.dart';
 import '../../../../utils/api_endpoints.dart';
 
 final class RegisterViewModel extends BaseViewModel {

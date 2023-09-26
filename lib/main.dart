@@ -4,9 +4,9 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:tausifcoincompass/product/constants/app_constants.dart';
-import 'package:tausifcoincompass/product/constants/navigation_constants.dart';
-import 'package:tausifcoincompass/product/extension/navigation_constants_extension.dart';
+import 'package:tausifcoincompass/core/constants/app_constants.dart';
+import 'package:tausifcoincompass/core/constants/navigation_constants.dart';
+import 'package:tausifcoincompass/core/extension/navigation_constants_extension.dart';
 
 void main() {
   _runApplication();

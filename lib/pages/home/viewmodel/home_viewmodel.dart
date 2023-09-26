@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:tausifcoincompass/core/base/viewmodel/base_viewmodel.dart';
-import 'package:tausifcoincompass/product/constants/navigation_constants.dart';
-import 'package:tausifcoincompass/product/enum/page_state.dart';
+import 'package:tausifcoincompass/core/constants/navigation_constants.dart';
+import 'package:tausifcoincompass/core/enum/page_state.dart';
 
 final class HomeViewModel extends BaseViewModel {
   static bool get isRegistered => Get.isRegistered<HomeViewModel>();

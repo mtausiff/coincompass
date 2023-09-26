@@ -3,8 +3,8 @@ import 'package:get/get.dart' hide FormData;
 import 'package:tausifcoincompass/core/base/model/base_model.dart';
 import 'package:tausifcoincompass/core/base/service/base_response.dart';
 import 'package:tausifcoincompass/core/network/network_manager.dart';
-import 'package:tausifcoincompass/product/enum/http_type.dart';
-import 'package:tausifcoincompass/product/enum/network_path.dart';
+import 'package:tausifcoincompass/core/enum/http_type.dart';
+import 'package:tausifcoincompass/core/enum/network_path.dart';
 
 abstract base class BaseService {
   BaseService(this._networkManager);

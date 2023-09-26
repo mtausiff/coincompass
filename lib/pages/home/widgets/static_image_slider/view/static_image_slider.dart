@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../core/base/view/base_view.dart';
 import '../../../../../../core/base/widget/base_stateless_widget.dart';
-import '../../../../../product/widgets/image_widget.dart';
+import '../../../../../widgets/image_widget.dart';
 import '../viewmodel/static_image_slider_viewmodel.dart';
 
 final class StaticImageSlider extends BaseStatelessWidget<StaticImageSliderViewModel> {

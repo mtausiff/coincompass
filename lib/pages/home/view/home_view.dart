@@ -3,8 +3,8 @@ import 'package:tausifcoincompass/core/base/view/base_view.dart';
 import 'package:tausifcoincompass/core/base/widget/base_stateless_widget.dart';
 import 'package:tausifcoincompass/pages/home/widgets/content_slider/view/content_slider.dart';
 
-import '../../../product/widgets/app_logo_widget.dart';
-import '../../../product/widgets/component_title_widget.dart';
+import '../../../widgets/app_logo_widget.dart';
+import '../../../widgets/component_title_widget.dart';
 import '../viewmodel/home_viewmodel.dart';
 import '../widgets/image_slider/view/image_slider.dart';
 import '../widgets/static_image_slider/view/static_image_slider.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tausifcoincompass/product/enum/page_state.dart';
-import 'package:tausifcoincompass/product/extension/context_extension.dart';
+import 'package:tausifcoincompass/core/enum/page_state.dart';
+import 'package:tausifcoincompass/core/extension/context_extension.dart';
 
 import '../viewmodel/base_viewmodel.dart';
 

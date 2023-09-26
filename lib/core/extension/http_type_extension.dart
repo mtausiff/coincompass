@@ -1,4 +1,4 @@
-import 'package:tausifcoincompass/product/enum/http_type.dart';
+import 'package:tausifcoincompass/core/enum/http_type.dart';
 
 extension HttpTypeExtension on HttpType {
   String get type => switch (this) {

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tausifcoincompass/core/base/viewmodel/base_viewmodel.dart';
 import 'package:tausifcoincompass/pages/oldhome/widgets/oldhome_dialog/view/oldhome_dialog_view.dart';
-import 'package:tausifcoincompass/product/enum/page_state.dart';
-import 'package:tausifcoincompass/product/service/app_services.dart';
+import 'package:tausifcoincompass/core/enum/page_state.dart';
+import 'package:tausifcoincompass/core/service/app_services.dart';
 
-import '../../../../product/constants/app_constants.dart';
-import '../../../../product/model/local_storage_models.dart';
+import '../../../../core/constants/app_constants.dart';
+import '../../../../core/model/local_storage_models.dart';
 
 final class OldHomeViewModel extends BaseViewModel {
   static bool get isRegistered => Get.isRegistered<OldHomeViewModel>();

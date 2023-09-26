@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:tausifcoincompass/product/mixin/debug_printer_mixin.dart';
+import 'package:tausifcoincompass/core/mixin/debug_printer_mixin.dart';
 import 'package:objectbox/objectbox.dart';
 
-import '../../product/model/local_storage_models.dart';
+import '../model/local_storage_models.dart';
 
 class LocalStorage extends GetxService with DebugPrinterMixin {
   late final Box<AppUser> _appUserBox;

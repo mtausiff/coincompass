@@ -2,14 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:tausifcoincompass/core/base/model/base_model.dart';
 import 'package:tausifcoincompass/core/base/service/base_response.dart';
-import 'package:tausifcoincompass/product/enum/http_type.dart';
-import 'package:tausifcoincompass/product/enum/network_path.dart';
-import 'package:tausifcoincompass/product/extension/http_type_extension.dart';
-import 'package:tausifcoincompass/product/extension/network_path_extension.dart';
-import 'package:tausifcoincompass/product/model/network_error.dart';
-import 'package:tausifcoincompass/product/utility/loader_manager.dart';
+import 'package:tausifcoincompass/core/enum/http_type.dart';
+import 'package:tausifcoincompass/core/enum/network_path.dart';
+import 'package:tausifcoincompass/core/extension/http_type_extension.dart';
+import 'package:tausifcoincompass/core/extension/network_path_extension.dart';
+import 'package:tausifcoincompass/utility/loader_manager.dart';
 
-import '../../product/mixin/network_logger_mixin.dart';
+import '../../core/mixin/network_logger_mixin.dart';
+import '../model/network_error.dart';
 
 class CoreDio with NetworkLoggerMixin {
   CoreDio({required BaseOptions baseOptions}) {

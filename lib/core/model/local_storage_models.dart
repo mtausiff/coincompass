@@ -1,4 +1,4 @@
-import 'package:tausifcoincompass/product/constants/app_constants.dart';
+import 'package:tausifcoincompass/core/constants/app_constants.dart';
 import 'package:objectbox/objectbox.dart';
 
 sealed class BaseLocalStorageModel {}

@@ -1,5 +1,5 @@
-import 'package:tausifcoincompass/product/enum/http_type.dart';
-import 'package:tausifcoincompass/product/enum/network_path.dart';
+import 'package:tausifcoincompass/core/enum/http_type.dart';
+import 'package:tausifcoincompass/core/enum/network_path.dart';
 
 import '../../../../core/base/service/base_response.dart';
 import '../../../../core/base/service/base_service.dart';

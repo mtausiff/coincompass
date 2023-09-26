@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:tausifcoincompass/core/base/model/base_model.dart';
-import 'package:tausifcoincompass/product/extension/general_extensions.dart';
-import 'package:tausifcoincompass/product/utility/logger.dart';
+import 'package:tausifcoincompass/core/extension/general_extensions.dart';
+import 'package:tausifcoincompass/utility/logger.dart';
 
 import '../enum/http_type.dart';
 
