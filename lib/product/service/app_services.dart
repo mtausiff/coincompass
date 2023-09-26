@@ -4,7 +4,7 @@ import 'package:tausifcoincompass/product/enum/network_path.dart';
 import '../../../../core/base/service/base_response.dart';
 import '../../../../core/base/service/base_service.dart';
 import '../../../../core/network/network_manager.dart';
-import '../../pages/general/oldhome/model/product_model.dart';
+import '../../pages/oldhome/model/product_model.dart';
 
 abstract base class AppServices {
   static final homeService = _HomeService.instance;

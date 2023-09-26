@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tausifcoincompass/core/base/view/base_view.dart';
 import 'package:tausifcoincompass/core/base/widget/base_stateless_widget.dart';
 import 'package:get/get.dart';
-import 'package:tausifcoincompass/pages/general/login/widgets/submit_button.dart';
+import 'package:tausifcoincompass/pages/login/widgets/submit_button.dart';
 import '../../login/widgets/input_fields.dart';
 import '../viewmodel/register_viewmodel.dart';
 

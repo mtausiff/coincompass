@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:tausifcoincompass/pages/general/coindetails/view/coin_details_view.dart';
-import 'package:tausifcoincompass/pages/general/coinlisting/view/coin_listing_view.dart';
-import 'package:tausifcoincompass/pages/general/contactus/view/contactus_view.dart';
-import 'package:tausifcoincompass/pages/general/home/view/home_view.dart';
-import 'package:tausifcoincompass/pages/general/home/widgets/video_slider/video_player_impl.dart';
-import 'package:tausifcoincompass/pages/general/login/view/login_view.dart';
-import 'package:tausifcoincompass/pages/general/register/view/register_view.dart';
+import 'package:tausifcoincompass/pages/coindetails/view/coin_details_view.dart';
+import 'package:tausifcoincompass/pages/coinlisting/view/coin_listing_view.dart';
+import 'package:tausifcoincompass/pages/contactus/view/contactus_view.dart';
+import 'package:tausifcoincompass/pages/home/view/home_view.dart';
+import 'package:tausifcoincompass/pages/home/widgets/video_slider/video_player_impl.dart';
+import 'package:tausifcoincompass/pages/login/view/login_view.dart';
+import 'package:tausifcoincompass/pages/register/view/register_view.dart';
 
-import '../../pages/general/oldhome/view/oldhome_view.dart';
+import '../../pages/oldhome/view/oldhome_view.dart';
 import '../../pages/splash/view/splash_view.dart';
 import '../constants/navigation_constants.dart';
 

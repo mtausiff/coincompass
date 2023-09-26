@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tausifcoincompass/core/base/view/base_view.dart';
 import 'package:tausifcoincompass/core/base/widget/base_stateless_widget.dart';
-import 'package:tausifcoincompass/pages/general/oldhome/viewmodel/oldhome_viewmodel.dart';
+import 'package:tausifcoincompass/pages/oldhome/viewmodel/oldhome_viewmodel.dart';
 
 
 final class OldHome extends BaseStatelessWidget<OldHomeViewModel> {

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tausifcoincompass/core/base/view/base_view.dart';
 import 'package:tausifcoincompass/core/base/widget/base_stateless_widget.dart';
-import 'package:tausifcoincompass/pages/general/home/widgets/content_slider/view/content_slider.dart';
+import 'package:tausifcoincompass/pages/home/widgets/content_slider/view/content_slider.dart';
 
-import '../../widgets/app_logo_widget.dart';
+import '../../../product/widgets/app_logo_widget.dart';
+import '../../../product/widgets/component_title_widget.dart';
 import '../viewmodel/home_viewmodel.dart';
 import '../widgets/image_slider/view/image_slider.dart';
+import '../widgets/static_image_slider/view/static_image_slider.dart';
 import '../widgets/video_slider/view/video_slider.dart';
 
 final class Home extends BaseStatelessWidget<HomeViewModel> {
@@ -23,7 +25,7 @@ final class Home extends BaseStatelessWidget<HomeViewModel> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
-        leading: logoWidget('assets/logo/app-logo.png'),
+        leading: appLogoWidget('assets/logo/app-logo.png'),
         actions: [
 
           InkWell(
@@ -48,9 +50,11 @@ final class Home extends BaseStatelessWidget<HomeViewModel> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ImageSlider(),
+          StaticImageSlider(),
+          componentTitleWidget('Famous Brands...'),
           //VideoSlider(),
           ContentSlider(),
+          componentTitleWidget('Today Events...'),
           ImageSlider(),
         ],
       ),

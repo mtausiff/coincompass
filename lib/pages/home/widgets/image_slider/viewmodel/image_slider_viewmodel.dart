@@ -11,14 +11,13 @@ final class ImageSliderViewModel extends BaseViewModel {
   int _currentPage = 0;
 
   List<String> imagesList = [
-    'https://images.pexels.com/photos/6889088/pexels-photo-6889088.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    'https://cdn.pixabay.com/photo/2015/03/25/23/46/cube-689619__340.jpg',
-    'https://images.pexels.com/photos/10643964/pexels-photo-10643964.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/7780128/pexels-photo-7780128.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    'https://cdn.pixabay.com/photo/2017/01/08/13/58/cube-1963036__340.jpg',
-    'https://images.pexels.com/photos/7573942/pexels-photo-7573942.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    'https://images.pexels.com/photos/3390587/pexels-photo-3390587.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJqqqTEDG47DmRff3nNLGXTq5CpMgiPWaVfw56m-Ulnb86AT005TvuIaQB58jJURMKlHk&usqp=CAU',
+    'https://fastly.picsum.photos/id/1040/200/300.jpg?hmac=Q4ntfv8HG_O9dfwjINSmS4oQUot0YUwT_6bezgKA3Jw',
+    'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U',
+    'https://fastly.picsum.photos/id/650/200/300.jpg?grayscale&hmac=myLQomtZX7RDIbHaQAbVzQ4LDqaUnQ1-s7_apqgQ-BI',
+    'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U',
+    'https://fastly.picsum.photos/id/1040/200/300.jpg?hmac=Q4ntfv8HG_O9dfwjINSmS4oQUot0YUwT_6bezgKA3Jw',
+    'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U',
+    'https://fastly.picsum.photos/id/650/200/300.jpg?grayscale&hmac=myLQomtZX7RDIbHaQAbVzQ4LDqaUnQ1-s7_apqgQ-BI',
   ];
 
   List<Widget> _buildPageIndicator() {

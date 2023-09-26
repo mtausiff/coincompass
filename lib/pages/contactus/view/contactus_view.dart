@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tausifcoincompass/core/base/view/base_view.dart';
 import 'package:tausifcoincompass/core/base/widget/base_stateless_widget.dart';
-import 'package:tausifcoincompass/pages/general/contactus/viewmodel/contactus_viewmodel.dart';
+import 'package:tausifcoincompass/pages/contactus/viewmodel/contactus_viewmodel.dart';
 
 final class ContactUs extends BaseStatelessWidget<ContactUsViewModel> {
   ContactUs({Key? key}) : super(key: key, viewModel: ContactUsViewModel());
