@@ -14,7 +14,7 @@ final class _AppBuildType {
   static _AppBuildType get instance => _instance ??= _AppBuildType._();
   _AppBuildType._();
 
-  final BuildType buildType = BuildType.release;
+  final BuildType buildType = BuildType.test;
 }
 
 final class _AppUserEntityId {

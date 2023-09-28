@@ -1,3 +1,4 @@
 enum NetworkPath {
   products,
+  login,
 }

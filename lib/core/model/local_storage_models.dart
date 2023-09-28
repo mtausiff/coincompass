@@ -10,6 +10,7 @@ class AppUser extends BaseLocalStorageModel {
   String? id;
   String? name;
   String? surname;
+  String? token;
 
-  AppUser({this.id, this.name, this.surname});
+  AppUser({this.id, this.name, this.surname,this.token});
 }

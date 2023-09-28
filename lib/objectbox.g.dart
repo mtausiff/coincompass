@@ -22,7 +22,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(1, 3452068481205201249),
       name: 'AppUser',
-      lastPropertyId: const IdUid(4, 6144438506391140977),
+      lastPropertyId: const IdUid(5, 3651344004716847899),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -43,6 +43,11 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(4, 6144438506391140977),
             name: 'surname',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 3651344004716847899),
+            name: 'token',
             type: 9,
             flags: 0)
       ],
@@ -105,11 +110,14 @@ ModelDefinition getObjectBoxModel() {
               object.name == null ? null : fbb.writeString(object.name!);
           final surnameOffset =
               object.surname == null ? null : fbb.writeString(object.surname!);
-          fbb.startTable(5);
+          final tokenOffset =
+              object.token == null ? null : fbb.writeString(object.token!);
+          fbb.startTable(6);
           fbb.addInt64(0, object.entityId);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
           fbb.addOffset(3, surnameOffset);
+          fbb.addOffset(4, tokenOffset);
           fbb.finish(fbb.endTable());
           return object.entityId;
         },
@@ -122,10 +130,15 @@ ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 8);
           final surnameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 10);
-          final object =
-              AppUser(id: idParam, name: nameParam, surname: surnameParam)
-                ..entityId =
-                    const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final tokenParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final object = AppUser(
+              id: idParam,
+              name: nameParam,
+              surname: surnameParam,
+              token: tokenParam)
+            ..entityId =
+                const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
 
           return object;
         })
@@ -149,4 +162,7 @@ class AppUser_ {
   /// see [AppUser.surname]
   static final surname =
       QueryStringProperty<AppUser>(_entities[0].properties[3]);
+
+  /// see [AppUser.token]
+  static final token = QueryStringProperty<AppUser>(_entities[0].properties[4]);
 }
