@@ -7,6 +7,8 @@ abstract final class AppConstants {
   static final appBuildType = _AppBuildType.instance;
   static final appTheme = _AppTheme.instance;
   static final appUserEntityId = _AppUserEntityId.instance;
+
+  static const appLogo = "assets/logo/app-logo.png";
 }
 
 final class _AppBuildType {
