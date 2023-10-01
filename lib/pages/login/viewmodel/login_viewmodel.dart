@@ -1,19 +1,14 @@
 import 'package:get/get.dart';
 import 'package:tausifcoincompass/core/base/viewmodel/base_viewmodel.dart';
 import 'package:tausifcoincompass/core/constants/app_constants.dart';
-import 'package:tausifcoincompass/core/enum/page_state.dart';
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tausifcoincompass/core/model/local_storage_models.dart';
 import 'package:tausifcoincompass/core/service/app_services.dart';
 import 'package:tausifcoincompass/models/user_auth_model.dart';
 
 import '../../../../core/constants/navigation_constants.dart';
-import '../../../../utils/api_endpoints.dart';
-import '../../home/view/home_view.dart';
 
 final class LoginViewModel extends BaseViewModel {
   static bool get isRegistered => Get.isRegistered<LoginViewModel>();
@@ -39,26 +34,20 @@ final class LoginViewModel extends BaseViewModel {
   Future<void> navigateToRegister() async {
     final appUser = localStorage.getAppUser(
         entityId: AppConstants.appUserEntityId.appUserEntityId);
+
     if (appUser?.token == null) {
       await offNamed(NavigationConstants.register);
-    } else {
+    }
+    else {
       await offNamed(NavigationConstants.home);
     }
   }
 
   Future<void> loginWithGoogle() async {
-    await 1.seconds.delay(
-      () async {
-        await offNamed(NavigationConstants.login);
-      },
-    );
+    await offNamed(NavigationConstants.login);
   }
 
   Future<void> navigateToHome() async {
-    await 1.seconds.delay(
-      () async {
-        await offNamed(NavigationConstants.home);
-      },
-    );
+    await offNamed(NavigationConstants.home);
   }
 }

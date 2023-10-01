@@ -36,8 +36,10 @@ final class CoinListing extends BaseStatelessWidget<CoinListingViewModel> {
         "Coin Listing App Bar",
         style: TextStyle(color: Colors.black, fontSize: 16),
       ),
-    backgroundColor: const Color(0x9fc0f457),
-
+      backgroundColor: Colors.orangeAccent,
+      leading: InkWell(
+          onTap: () => viewModel.navigateToHome(),
+          child: const Icon(Icons.home)),
     );
   }
 }

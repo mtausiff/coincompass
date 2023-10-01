@@ -86,26 +86,14 @@ final class RegisterViewModel extends BaseViewModel {
   }
 
   Future<void> navigateToLogin() async {
-    await 1.seconds.delay(
-      () async {
-        await offNamed(NavigationConstants.login);
-      },
-    );
+    await offNamed(NavigationConstants.login);
   }
 
   Future<void> navigateToHome() async {
-    await 1.seconds.delay(
-      () async {
-        await offNamed(NavigationConstants.home);
-      },
-    );
+    await offNamed(NavigationConstants.home);
   }
 
   Future<void> loginWithGoogle() async {
-    await 1.seconds.delay(
-      () async {
-        await offNamed(NavigationConstants.login);
-      },
-    );
+    await offNamed(NavigationConstants.login);
   }
 }
