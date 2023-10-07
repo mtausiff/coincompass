@@ -1,7 +1,12 @@
-/// userName : "guestuser@nft.com"
-/// password : "heremynft@321"
+import 'package:json_annotation/json_annotation.dart';
+import 'package:tausifcoincompass/core/base/model/base_model.dart';
 
-class AuthenticationTokenRequestModel {
+part 'authentication_token_request_model.g.dart';
+
+@JsonSerializable()
+class AuthenticationTokenRequestModel extends BaseModel<AuthenticationTokenRequestModel> {
+  String? _userName;
+  String? _password;
   AuthenticationTokenRequestModel({
       String? userName, 
       String? password,}){
@@ -9,25 +14,11 @@ class AuthenticationTokenRequestModel {
     _password = password;
 }
 
-  AuthenticationTokenRequestModel.fromJson(dynamic json) {
-    _userName = json['userName'];
-    _password = json['password'];
-  }
-  String? _userName;
-  String? _password;
-AuthenticationTokenRequestModel copyWith({  String? userName,
-  String? password,
-}) => AuthenticationTokenRequestModel(  userName: userName ?? _userName,
-  password: password ?? _password,
-);
-  String? get userName => _userName;
-  String? get password => _password;
+  factory AuthenticationTokenRequestModel.fromJson(Map<String, dynamic> json) => _$AuthenticationTokenRequestModelFromJson(json);
+  @override
+  Map<String, dynamic> toJson() => _$AuthenticationTokenRequestModelToJson(this);
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['userName'] = _userName;
-    map['password'] = _password;
-    return map;
-  }
+  @override
+  fromJson(Map<String, dynamic> json) => _$AuthenticationTokenRequestModelFromJson(json);
 
 }

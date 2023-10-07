@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:3452068481205201249",
-      "lastPropertyId": "5:3651344004716847899",
+      "lastPropertyId": "7:6675006075996735794",
       "name": "AppUser",
       "properties": [
         {
@@ -30,8 +30,13 @@
           "type": 9
         },
         {
-          "id": "5:3651344004716847899",
-          "name": "token",
+          "id": "6:9016830117163444449",
+          "name": "accessToken",
+          "type": 9
+        },
+        {
+          "id": "7:6675006075996735794",
+          "name": "refreshToken",
           "type": 9
         }
       ],
@@ -46,7 +51,9 @@
   "modelVersionParserMinimum": 5,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    3651344004716847899
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

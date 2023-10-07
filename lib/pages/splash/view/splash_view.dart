@@ -17,7 +17,7 @@ final class Splash extends BaseStatelessWidget<SplashViewModel> {
   Widget _onSuccess({required BuildContext context}) {
     return const Scaffold(
       body: Center(
-        child: Text("Splash"),
+        child: Text("Welcome to new World!"),
       ),
     );
   }

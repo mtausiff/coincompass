@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tausifcoincompass/core/model/local_storage_models.dart';
 import 'package:tausifcoincompass/core/service/app_services.dart';
-import 'package:tausifcoincompass/models/user_auth_model.dart';
+import 'package:tausifcoincompass/models/authentication_token_request_model.dart';
 
 import '../../../../core/constants/navigation_constants.dart';
 
@@ -22,12 +22,17 @@ final class LoginViewModel extends BaseViewModel {
   final _authService = AppServices.userAuthService;
 
   Future<void> loginWithEmail() async {
-    final loginResponse = await _authService.login(
-        authModel: UserAuthModel(
-            email: emailController.text, password: passwordController.text));
-    final token = loginResponse.data?.token;
-    if (token != null) {
-      localStorage.putEntity(entity: AppUser(token: token));
+    final authTokenResponse = await _authService.getAuthToken(
+        authModel: AuthenticationTokenRequestModel(
+            userName: emailController.text, password: passwordController.text));
+
+    if (authTokenResponse.networkError?.statusCode == 200 &&
+        authTokenResponse.data != null &&
+        authTokenResponse.data!.code == 200) {
+      final authTokenResponseModel = authTokenResponse.data!.data;
+      String accessToken = authTokenResponseModel!.accessToken!.toString();
+      //Save Received Authentication Token to localStorage
+      localStorage.putEntity(entity: AppUser(accessToken: accessToken));
     }
   }
 
@@ -35,10 +40,9 @@ final class LoginViewModel extends BaseViewModel {
     final appUser = localStorage.getAppUser(
         entityId: AppConstants.appUserEntityId.appUserEntityId);
 
-    if (appUser?.token == null) {
+    if (appUser?.accessToken == null) {
       await offNamed(NavigationConstants.register);
-    }
-    else {
+    } else {
       await offNamed(NavigationConstants.home);
     }
   }

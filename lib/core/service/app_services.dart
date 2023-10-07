@@ -1,12 +1,11 @@
-import 'package:dio/dio.dart';
 import 'package:tausifcoincompass/core/enum/http_type.dart';
 import 'package:tausifcoincompass/core/enum/network_path.dart';
-import 'package:tausifcoincompass/models/login_response.dart';
-import 'package:tausifcoincompass/models/user_auth_model.dart';
 
 import '../../../../core/base/service/base_response.dart';
 import '../../../../core/base/service/base_service.dart';
 import '../../../../core/network/network_manager.dart';
+import '../../models/authentication_token_request_model.dart';
+import '../../models/authentication_token_response_model.dart';
 import '../../pages/oldhome/model/product_model.dart';
 
 abstract base class AppServices {
@@ -57,14 +56,14 @@ final class _AuthenticationService extends BaseService {
 
   static _AuthenticationService get instance => _instance ??= _AuthenticationService._init();
 
-  _AuthenticationService._init() : super(NetworkManager.instance);
-  Future<BaseResponse<LoginResponse>> login({required UserAuthModel authModel}) async {
-    final response = await request<LoginResponse, LoginResponse>(
+  _AuthenticationService._init() : super(NetworkManager.coinInstance);
+  Future<BaseResponse<AuthenticationTokenResponseModel>> getAuthToken({required AuthenticationTokenRequestModel authModel}) async {
+    final response = await request<AuthenticationTokenResponseModel, AuthenticationTokenResponseModel>(
       path: NetworkPath.login,
       type: HttpType.post,
       data: authModel,
-      responseEntityModel: LoginResponse(),
-showIndicator: true,
+      responseEntityModel: AuthenticationTokenResponseModel(),
+      showIndicator: true,
     );
     return response;
   }

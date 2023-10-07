@@ -22,7 +22,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(1, 3452068481205201249),
       name: 'AppUser',
-      lastPropertyId: const IdUid(5, 3651344004716847899),
+      lastPropertyId: const IdUid(7, 6675006075996735794),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -46,8 +46,13 @@ final _entities = <ModelEntity>[
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 3651344004716847899),
-            name: 'token',
+            id: const IdUid(6, 9016830117163444449),
+            name: 'accessToken',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 6675006075996735794),
+            name: 'refreshToken',
             type: 9,
             flags: 0)
       ],
@@ -88,7 +93,7 @@ ModelDefinition getObjectBoxModel() {
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
       retiredIndexUids: const [],
-      retiredPropertyUids: const [],
+      retiredPropertyUids: const [3651344004716847899],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -110,14 +115,19 @@ ModelDefinition getObjectBoxModel() {
               object.name == null ? null : fbb.writeString(object.name!);
           final surnameOffset =
               object.surname == null ? null : fbb.writeString(object.surname!);
-          final tokenOffset =
-              object.token == null ? null : fbb.writeString(object.token!);
-          fbb.startTable(6);
+          final accessTokenOffset = object.accessToken == null
+              ? null
+              : fbb.writeString(object.accessToken!);
+          final refreshTokenOffset = object.refreshToken == null
+              ? null
+              : fbb.writeString(object.refreshToken!);
+          fbb.startTable(8);
           fbb.addInt64(0, object.entityId);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
           fbb.addOffset(3, surnameOffset);
-          fbb.addOffset(4, tokenOffset);
+          fbb.addOffset(5, accessTokenOffset);
+          fbb.addOffset(6, refreshTokenOffset);
           fbb.finish(fbb.endTable());
           return object.entityId;
         },
@@ -130,13 +140,18 @@ ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 8);
           final surnameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 10);
-          final tokenParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 12);
+          final accessTokenParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14);
+          final refreshTokenParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
           final object = AppUser(
               id: idParam,
               name: nameParam,
               surname: surnameParam,
-              token: tokenParam)
+              accessToken: accessTokenParam,
+              refreshToken: refreshTokenParam)
             ..entityId =
                 const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
 
@@ -163,6 +178,11 @@ class AppUser_ {
   static final surname =
       QueryStringProperty<AppUser>(_entities[0].properties[3]);
 
-  /// see [AppUser.token]
-  static final token = QueryStringProperty<AppUser>(_entities[0].properties[4]);
+  /// see [AppUser.accessToken]
+  static final accessToken =
+      QueryStringProperty<AppUser>(_entities[0].properties[4]);
+
+  /// see [AppUser.refreshToken]
+  static final refreshToken =
+      QueryStringProperty<AppUser>(_entities[0].properties[5]);
 }
