@@ -11,10 +11,21 @@ final class NetworkManager {
   static NetworkManager? _instance;
   static NetworkManager get instance => _instance ??= NetworkManager._();
 
+  static NetworkManager? _coinInstance;
+  static NetworkManager get coinInstance => _coinInstance ??= NetworkManager._coin();
+
   NetworkManager._() {
     coreDio = CoreDio(
       baseOptions: BaseOptions(
         baseUrl: AppConstants.appBuildType.buildType == BuildType.test ? Env.testBaseUrl : Env.liveBaseUrl,
+      ),
+    );
+  }
+
+  NetworkManager._coin() {
+    coreDio = CoreDio(
+      baseOptions: BaseOptions(
+        baseUrl: AppConstants.appBuildType.buildType == BuildType.test ? Env.testCoinBaseUrl : Env.liveCoinBaseUrl,
       ),
     );
   }

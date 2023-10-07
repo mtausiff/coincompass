@@ -38,15 +38,14 @@ final class _HomeService extends BaseService {
 final class _CoinService extends BaseService {
   static _CoinService? _instance;
   static _CoinService get instance => _instance ??= _CoinService._init();
-  _CoinService._init() : super(NetworkManager.instance);
+  _CoinService._init() : super(NetworkManager.coinInstance);
 
   Future<BaseResponse<List<ProductModel>>> getCoins() async {
     final response = await request<List<ProductModel>, ProductModel>(
-      path: NetworkPath.products,
+      path: NetworkPath.coingecko,
       type: HttpType.get,
       responseEntityModel: ProductModel(),
-
-      pathSuffix: "/1",
+      pathSuffix: "/v1/getCoinsByQuery",
     );
     return response;
   }
