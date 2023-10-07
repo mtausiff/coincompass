@@ -1,0 +1,161 @@
+    Google Login using Firebase
+======================================
+
+Pre-requisite:
+--------------
+Emulator must have Play Store
+
+Overview:
+---------
+1. Firebase project setup
+2.A Firebase App setup for Android Application
+2.B Firebase App setup for iOS Application
+3. Application UI preparation
+4. Firebase Integration with App
+5. Google Login verification on Android Application
+
+Detailed Procedure:
+------------------------------------------------------------------------------------------------
+1. Firebase project setup
+    A. Go to Firebase console "https://console.firebase.google.com/"
+    B. Create new Project. During Project creation, simply follow the suggested instruction.
+        a. Fill up Project Name
+        b. Unselect Google Analytics checkbox
+
+    B. After Firebase project creation, Navigate to Build > Authentication > Get Started > Sign-in method > select Google.
+        a. Enable checkbox
+        b. Provide Support email
+        c. Save changes
+        d. You can see Google enabled under Sign-in providers section
+
+2. Firebase App setup for Android Application
+
+    A. Navigate to Project Overview.
+    B. Click on Android icon button and follow instructions:
+       a.) Android package name
+               Open ../flutter_authentication_application/android/app/build.gradle file
+               Copy applicationId present under android > defaultConfig and paste it.
+       b.) App nickname (optional)
+       c.) Debug signing certificate SHA-1 (optional) -> Required for Dynamic Links, and Google Sign-In or phone number support in Auth
+          i->   Open Terminal on system. Paste and Run below command in terminal
+                  keytool -list -v \
+                      -alias androiddebugkey -keystore ~/.android/debug.keystore
+          ii->  Enter keystore password: android
+          iii-> Copy generated SHA-1 and paste it to SHA-1 field
+
+       d.) Click on 'Register App' button. "Download config file" option will be open up.
+       e.) Download 'google-services.json' file and add it at path '../flutter_authentication_application/android/app/google-services.json'
+       f.) Click on 'Next' button. "Add Firebase SDK" option will be open up.
+       g.) Add Firebase SDK by following given instructions. such as:
+            Open build.gradle file present at ../{projectName}/android/
+                Verify google() is present under buildscript > repositories{} block and allprojects > repositories{} block
+                Add "classpath 'com.google.gms:google-services:4.3.10'" under dependencies{} block
+
+            Open build.gradle file present at ../{projectName}/android/app/
+                Add below line just under apply plugin
+                    apply plugin: 'com.google.gms.google-services'
+                Add below line under dependencies{} block
+                    implementation.platform('com.google.firebase:firebase-bom:29.0.2')
+                [OPTIONAL] Add below line under dependencies{} block
+                    implementation 'com.google.firebase:firebase-analytics'
+                Update minSdkVersion to 22, present under defaultConfig{} block
+
+       h.) After adding the plugin and the desired SDKs, sync your Android project with Gradle files
+       i.) Click on 'Next' button
+       j.) Click on 'Continue to Console button'
+
+
+3. Application UI preparation
+    A. Prepare UI for Google Login & Logout screens. Basically login & logout buttons.
+
+
+4. Firebase Integration with App
+    A. Open pubspec.yaml file and Add dependencies
+        firebase_core: ^2.15.0
+        firebase_auth: ^3.3.3
+        google_sign_in: ^5.2.1
+
+    B. Open terminal and Run 'flutter pub get' command
+    C. Open main.dart file and write below line:
+        void main() {
+          WidgetsFlutterBinding.ensureInitialized();
+        }
+
+    D. Initialize Firebase app on Splash screen
+        void onReady() async {
+            await Firebase.initializeApp();
+            super.onReady();
+        }
+
+    E. Invoke login and signup methods of firebase. Use Sample below code.
+
+    F. Sample code to access Logged-in user details
+       Image.network(FirebaseAuth.instance.currentUser!.photoURL!);
+       Text("${FirebaseAuth.instance.currentUser!.displayName}");
+       Text("${FirebaseAuth.instance.currentUser!.email}");
+
+5. Google Login verification on Android Application
+
+---------**********---------**********------------------**********---------**********---------
+
+import 'dart:ffi';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+class FirebaseServices {
+  final _auth = FirebaseAuth.instance;
+  final _googleSignIn = GoogleSignIn();
+
+  signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleSignInAccount =
+          await _googleSignIn.signIn();
+      if (googleSignInAccount != null) {
+        final GoogleSignInAuthentication googleSignInAuthentication =
+            await googleSignInAccount.authentication;
+        final AuthCredential authCredential = GoogleAuthProvider.credential(
+            accessToken: googleSignInAuthentication.accessToken,
+            idToken: googleSignInAuthentication.idToken);
+        await _auth.signInWithCredential(authCredential);
+      }
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+      throw e;
+    }
+  }
+
+  googleSignOut() async {
+    await _auth.signOut();
+    await _googleSignIn.signOut();
+  }
+}
+---------**********---------**********------------------**********---------**********---------
+
+2. Firebase App setup for iOS Application
+    A. Navigate to Project Overview.
+    B. Click on iOS icon button and follow instructions:
+       a.) Apple bundle ID
+           Search for 'PRODUCT_BUNDLE_IDENTIFIER' in project source code. Copy value and paste it.
+           Or open ../{projectname}/ios/Runner.xcworkspace in Xcode application on MAC and Copy bundle Id value and paste it.
+
+       b.) App nickname (optional) leave it blank
+       c.) App Store ID (optional) leave it blank
+       d.) Click on 'Register App' button. "Download config file" option will be open up.
+       e.) Download 'GoogleService-Info.plist' file and add it at path '../projects/{projectname}/ios/Runner/'. Just near to Info.plist file
+       f.) Click on 'Next' button. "Add Firebase SDK" option will be open up.
+       g.) Simply Click on 'Next' button. "Add initialization code" option will be open up.
+       h.) Click on 'Next' button
+       i.) Click on 'Continue to Console button'
+
+    C. Open ../{projectname}/ios/Runner.xcworkspace file in Xcode application.
+         TARGETS > Runner
+            In General tab > under Deployment Info section.
+            Change iOS 9.0 to 12.0
+
+         PROJECT > Runner
+            In Info tab > under Deployment Target
+            change IOS Deployment Target 9.0 to 12.0
+
+         Flutter > AppFrameworkInfo
+            change MinimumOSVersion 9.0 to 12.0

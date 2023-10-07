@@ -1,10 +1,18 @@
 Login and Registration using Firebase in Android
 ------------------------------------------------
+Pre-requisite:
+--------------
+Emulator must have Play Store
+
+Overview:
+---------
 1. Firebase project setup for Android & iOS applications
 2. Application UI preparation
 3. Firebase Integration with App
 4. Login/Register functionalities verification on Application
 
+Detailed Procedure:
+------------------------------------------------------------------------------------------------
 1. Firebase project setup
     A. Go to Firebase console and create Project. During Project creation, simply follow the suggested instruction.
     B. After Firebase project creation, Navigate to Build > Authentication > Get Started > Sign-in method > select Email/Password option and Save the option.
