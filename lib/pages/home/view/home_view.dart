@@ -36,6 +36,12 @@ final class Home extends BaseStatelessWidget<HomeViewModel> {
       leading: appLogoWidget(AppConstants.appLogo),
       actions: [
         InkWell(
+            onTap: () => viewModel.navigateToCoinListingPage(),
+            child: const Icon(Icons.currency_rupee)),
+        InkWell(
+            onTap: () => viewModel.navigateToCoinDetailsPage(),
+            child: const Icon(Icons.ac_unit_sharp)),
+        InkWell(
             onTap: () => viewModel.navigateToVideoPage(),
             child: const Icon(Icons.video_camera_back)),
         InkWell(

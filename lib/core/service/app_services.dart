@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:tausifcoincompass/core/enum/http_type.dart';
 import 'package:tausifcoincompass/core/enum/network_path.dart';
-import 'package:tausifcoincompass/models/authentication_token_response_model.dart';
 import 'package:tausifcoincompass/models/login_response.dart';
 import 'package:tausifcoincompass/models/user_auth_model.dart';
 
@@ -12,6 +11,7 @@ import '../../pages/oldhome/model/product_model.dart';
 
 abstract base class AppServices {
   static final homeService = _HomeService.instance;
+  static final coinService = _CoinService.instance;
   static final userAuthService = _AuthenticationService.instance;
 
 }
@@ -35,7 +35,22 @@ final class _HomeService extends BaseService {
   }
 }
 
+final class _CoinService extends BaseService {
+  static _CoinService? _instance;
+  static _CoinService get instance => _instance ??= _CoinService._init();
+  _CoinService._init() : super(NetworkManager.instance);
 
+  Future<BaseResponse<List<ProductModel>>> getCoins() async {
+    final response = await request<List<ProductModel>, ProductModel>(
+      path: NetworkPath.products,
+      type: HttpType.get,
+      responseEntityModel: ProductModel(),
+
+      pathSuffix: "/1",
+    );
+    return response;
+  }
+}
 
 
 final class _AuthenticationService extends BaseService {

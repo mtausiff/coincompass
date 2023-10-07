@@ -24,10 +24,12 @@ final class CoinListing extends BaseStatelessWidget<CoinListingViewModel> {
 
   Widget get _body {
     return Center(
-      child: Container(
-        child: Text('Coin Listing Body'),
-      ),
-    );
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: viewModel.coinList.length,
+            itemBuilder: (context, index) => Container(
+                child: Text(viewModel.coinList[index].brand.toString())
+            )));
   }
 
   AppBar _appBar() {

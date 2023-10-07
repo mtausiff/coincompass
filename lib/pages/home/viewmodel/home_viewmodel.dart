@@ -44,4 +44,12 @@ final class HomeViewModel extends BaseViewModel {
       },
     );
   }
+
+  Future<void> navigateToCoinListingPage() async {
+    await offNamed(NavigationConstants.coinlisting);
+  }
+
+  Future<void> navigateToCoinDetailsPage() async {
+    await offNamed(NavigationConstants.coindetails);
+  }
 }

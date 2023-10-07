@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import 'package:tausifcoincompass/core/base/viewmodel/base_viewmodel.dart';
 import 'package:tausifcoincompass/core/enum/page_state.dart';
 
+import '../../../core/constants/navigation_constants.dart';
+
 final class CoinDetailsViewModel extends BaseViewModel {
   static bool get isRegistered => Get.isRegistered<CoinDetailsViewModel>();
   static CoinDetailsViewModel? get to => isRegistered ? Get.find() : null;
@@ -18,5 +20,9 @@ final class CoinDetailsViewModel extends BaseViewModel {
     //perform any operation here
     setPageState(PageState.success);
     super.onReady();
+  }
+
+  Future<void> navigateToHome() async {
+    await offNamed(NavigationConstants.home);
   }
 }
