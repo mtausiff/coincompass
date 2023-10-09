@@ -1,11 +1,13 @@
 import 'package:tausifcoincompass/core/enum/http_type.dart';
 import 'package:tausifcoincompass/core/enum/network_path.dart';
+import 'package:tausifcoincompass/pages/coinlisting/model/fetch_coin_request_model.dart';
 
 import '../../../../core/base/service/base_response.dart';
 import '../../../../core/base/service/base_service.dart';
 import '../../../../core/network/network_manager.dart';
 import '../../models/authentication_token_request_model.dart';
 import '../../models/authentication_token_response_model.dart';
+import '../../pages/coinlisting/model/fetch_coinlist_response_model.dart';
 import '../../pages/oldhome/model/product_model.dart';
 
 abstract base class AppServices {
@@ -39,12 +41,18 @@ final class _CoinService extends BaseService {
   static _CoinService get instance => _instance ??= _CoinService._init();
   _CoinService._init() : super(NetworkManager.coinInstance);
 
-  Future<BaseResponse<List<ProductModel>>> getCoins() async {
-    final response = await request<List<ProductModel>, ProductModel>(
+  Future<BaseResponse<FetchCoinListResponseModel>> getCoins({required FetchCoinRequestModel requestBody, required String? accessToken}) async {
+    final response = await request<FetchCoinListResponseModel, FetchCoinListResponseModel>(
       path: NetworkPath.coingecko,
       type: HttpType.get,
-      responseEntityModel: ProductModel(),
+      data: requestBody,
+      headers: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json'
+      },
+      responseEntityModel: FetchCoinListResponseModel(),
       pathSuffix: "/v1/getCoinsByQuery",
+      showIndicator: true,
     );
     return response;
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tausifcoincompass/core/base/view/base_view.dart';
 import 'package:tausifcoincompass/core/base/widget/base_stateless_widget.dart';
+import 'package:tausifcoincompass/pages/coinlisting/model/fetch_coinlist_response_model.dart';
 
 import '../viewmodel/coin_listing_viewmodel.dart';
 
@@ -27,9 +28,11 @@ final class CoinListing extends BaseStatelessWidget<CoinListingViewModel> {
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: viewModel.coinList.length,
-            itemBuilder: (context, index) => Container(
-                child: Text(viewModel.coinList[index].brand.toString())
-            )));
+            itemBuilder: (context, index) =>
+                Container(
+                  child: Text(viewModel.coinList[index].coinId!)
+            )
+        ));
   }
 
   AppBar _appBar() {

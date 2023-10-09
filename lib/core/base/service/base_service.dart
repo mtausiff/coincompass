@@ -23,7 +23,9 @@ abstract base class BaseService {
       Duration receiveTimeout = const Duration(milliseconds: 15000), // 15 sec
       Duration sendTimeout = const Duration(milliseconds: 15000), // 15 sec
       bool showResponseErrorSnackbar = true,
-      bool showIndicator = false}) async {
+      bool showIndicator = false,
+      Map<String, dynamic>? headers,
+      }) async {
     final response = await _networkManager.coreDio.request<T, M>(
       path: path,
       type: type,
@@ -37,7 +39,7 @@ abstract base class BaseService {
       receiveTimeout: receiveTimeout,
       sendTimeout: sendTimeout,
       showIndicator: showIndicator,
-      headers: _generateHeaders(path: path),
+      headers: headers,
     );
     if (showResponseErrorSnackbar) _showResponseErrorSnackbar(baseResponse: response);
     return response;
